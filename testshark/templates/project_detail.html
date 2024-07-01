@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Project Details{% endblock %}
+
+{% block content %}
+<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+    <div class="mdc-card">
+        <h2 class="mdc-card__title mdc-card__title--primary">{{ project.name }}</h2>
+        <p class="mdc-card__subtitle">{{ project.description }}</p>
+        <p>
+            {% if project.source_code_file %}
+                <a href="{{ project.source_code_file.url }}">Source Code File</a>
+            {% else %}
+                No source code file uploaded.
+            {% endif %}
+        </p>
+        <a href="{% url 'test_case_list' project.id %}" class="mdc-button mdc-button--raised">View Test Cases</a>
+        {% comment %} <a href="{% url 'suggest_test_cases' project.id %}" class="mdc-button mdc-button--raised">Suggest Test Cases</a> {% endcomment %}
+    </div>
+</div>
+{% endblock %}

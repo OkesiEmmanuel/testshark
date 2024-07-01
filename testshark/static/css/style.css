@@ -1,0 +1,64 @@
+/* Basic Styles */
+:root{
+  --primary-bg-color:#000213;
+  --primary-text:#fff;
+  --secondary-bg-color:#01041f;
+}
+body {
+    background-color: var(--primary-bg-color); /* Light gray background */
+    font-family: Roboto, sans-serif; /* Use Roboto font */
+    margin: 0;
+    padding: 0;
+  }
+  .primary-text{
+    color: var(--primary-text);
+  }
+  .primary-bg{
+    background-color: var(--primary-bg-color);
+  }
+  .secondary-text{
+    color: #4CAF50;
+  }
+  .secondary-bg{
+    background-color: var(--secondary-bg-color);
+  }
+  .mdc-top-app-bar__title { /* Adjust header title styling (optional) */
+    font-weight: bold;
+  }
+  
+  .mdc-layout-grid__inner { /* Style content area (optional) */
+    padding: 1rem;
+  }
+  
+  a { /* Style links */
+    color: #036bcf; /* Blue links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.2s ease-in-out; /* Smooth hover effect */
+  }
+  
+  a:hover {
+    color: #4CAF50; /* Green on hover */
+  }
+  
+  /* Button Styles */
+  .mdc-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 20px; /* Adjust padding for desired size */
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Indicate clickable element */
+    transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+  }
+  
+  .mdc-button:hover {
+    background-color: #388e3c; /* Darker green on hover */
+  }
+  
+  /* Responsive Styles (Optional) */
+  @media (max-width: 768px) {
+    .mdc-button {
+      font-size: 14px; /* Smaller font size for mobile */
+    }
+  }
+  

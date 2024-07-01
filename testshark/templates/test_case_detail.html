@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Test Case Details{% endblock %}
+
+{% block content %}
+<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+    <div class="mdc-card">
+        <h2 class="mdc-card__title mdc-card__title--primary">{{ test_case.name }}</h2>
+        <p class="mdc-card__subtitle">{{ test_case.description }}</p>
+        <p><strong>Steps:</strong> {{ test_case.steps }}</p>
+        <p><strong>Expected Result:</strong> {{ test_case.expected_result }}</p>
+        <a href="{% url 'generate_script' test_case.id %}" class="mdc-button mdc-button--raised">Generate Script</a>
+    </div>
+</div>
+{% endblock %}

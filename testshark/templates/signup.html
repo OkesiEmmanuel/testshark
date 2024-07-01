@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+<div class="logo">
+  <img src="" alt="">Logo
+</div>
+<div class="signup-container secondary-bg m-auto w-50 rounded elevation-4 shadow border-3 p-3 mt-3" >
+  <h1 class="signup-title text-light text-center">Sign Up</h1> 
+  <p class="text-center text-lead text-light">Test Script at your finger tip</p>
+   <form method="POST" action="{% url 'signup' %}">
+    {% csrf_token %}
+    <div class="mdc-text-field form-group p-2 mb-2">
+      <input type="text" id="username" name="username" class="mdc-text-field__input form-control rounded bg-transparent " placeholder="Username" required>
+      <label for="username" class="mdc-text-field__label text-light">Username</label>
+      <div class="mdc-text-field__ripple"></div>
+    </div>
+    <div class="mdc-text-field form-group p-2 mb-2">
+      <input type="email" id="email" name="email" class="mdc-text-field__input form-control rounded bg-transparent" placeholder="Email" required>
+      <label for="email" class="mdc-text-field__label text-light">Email</label>
+      <div class="mdc-text-field__ripple"></div>
+    </div>
+   
+    <div class="mdc-text-field form-group p-2 mb-2">
+      <input type="password" id="password1" name="password1" class="mdc-text-field__input form-control rounded bg-transparent " placeholder="Password" required>
+      <label for="password1" class="mdc-text-field__label text-light">Password</label>
+      <div class="mdc-text-field__ripple"></div>
+    </div>
+    <div class="mdc-text-field form-group p-2 mb-2">
+        <input type="password" id="password2" name="password2" class="mdc-text-field__input form-control rounded bg-transparent " placeholder="Confirm Password" required>
+        <label for="password2" class="mdc-text-field__label text-light">Confirm Password</label>
+        <div class="mdc-text-field__ripple"></div>
+    </div>
+    <button type="submit" class="mdc-button mdc-button--raised">Register</button>
+
+</form>
+</div>
+{% endblock %}

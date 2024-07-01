@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Project{% endblock %}
+
+{% block content %}
+{% include "navbar.html" %}
+<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-12-phone mt-4 pt-5">
+    <div class="mdc-card">
+        <h2 class="mdc-card__title primary-text text-center">Create New Project</h2>
+        <form method="POST" enctype="multipart/form-data" action="{% url 'project_create' %}" class="form m-auto w-50 fs-20 rounded elevation-5 primary-bg primary-text">
+            {% csrf_token %}
+            {{ form.as_p }}     
+            <button type="submit" class="mdc-button mdc-button--raised">Create Project</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

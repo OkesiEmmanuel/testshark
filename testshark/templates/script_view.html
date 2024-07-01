@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Generate Test Script{% endblock %}
+
+{% block content %}
+<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+    <div class="mdc-card">
+        <h2 class="mdc-card__title mdc-card__title--primary">Generate Script for {{ test_case.name }}</h2>
+        <form method="POST" action="{% url 'generate_script' test_case.id %}">
+            {% csrf_token %}
+            <div class="mdc-select">
+                <select class="mdc-select__native-control" id="framework" name="framework">
+                    <option value="TestNG">TestNG</option>
+                    <option value="Selenium">Selenium</option>
+                    <option value="Cypress">Cypress</option>
+                </select>
+                <label for="framework" class="mdc-select__label">Testing Framework</label>
+                <div class="mdc-select__ripple"></div>
+            </div>
+            <div class="mdc-select">
+                <select class="mdc-select__native-control" id="language" name="language">
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="JavaScript">JavaScript</option>
+                </select>
+                <label for="language" class="mdc-select__label">Programming Language</label>
+                <div class="mdc-select__ripple"></div>
+            </div>
+            <div class="mdc-text-field">
+                <textarea id="element_identifiers" name="element_identifiers" class="mdc-text-field__input" placeholder="Element Identifiers (JSON format)" required></textarea>
+                <label for="element_identifiers" class="mdc-text-field__label">Element Identifiers</label>
+                <div class="mdc-text-field__ripple"></div>
+            </div>
+            <button type="submit" class="mdc-button mdc-button--raised">Generate Script</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

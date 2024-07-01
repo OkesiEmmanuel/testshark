@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+<div class="logo">
+  <img src="" alt="">Logo
+</div>
+<div class="signup-container secondary-bg m-auto w-50 rounded elevation-4 shadow border-3 p-3 mt-3" >
+  <h1 class="signup-title text-light text-center">Sign In</h1> 
+  <p class="text-center text-lead text-light">Test Script at your finger tip</p>
+   <form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="mdc-text-field form-group p-2 mb-2">
+      <input type="text" id="username" name="username" class="mdc-text-field__input form-control rounded bg-transparent " placeholder="Username" required>
+      <label for="username" class="mdc-text-field__label text-light">Username</label>
+      <div class="mdc-text-field__ripple"></div>
+    </div>
+   
+   
+    <div class="mdc-text-field form-group p-2 mb-2">
+      <input type="password" id="password" name="password" class="mdc-text-field__input form-control rounded bg-transparent " placeholder="Password" required>
+      <label for="password" class="mdc-text-field__label text-light">Password</label>
+      <div class="mdc-text-field__ripple"></div>
+    </div>
+   
+    <button type="submit" class="mdc-button mdc-button--raised">Login</button>
+
+</form>
+</div>
+{% endblock %}

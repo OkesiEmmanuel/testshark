@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Suggest Test Cases{% endblock %}
+
+{% block content %}
+<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+    <div class="mdc-card">
+        <h2 class="mdc-card__title mdc-card__title--primary">Suggest Test Cases for {{ project.name }}</h2>
+        <form method="POST" action="{% url 'suggest_test_cases' project.id %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <button type="submit" class="mdc-button mdc-button--raised">Suggest Test Cases</button>
+        </form>
+        <div id="suggestions">
+            </div>
+    </div>
+</div>
+
+{% block extra_scripts %}
+<script>
+    const suggestionsDiv = document.getElementById('suggestions');
+
+    function displaySuggestions(suggestions) {
+        suggestionsDiv.innerHTML = ''; // Clear previous suggestions
+
+        if (suggestions.length === 0) {
+            suggestionsDiv.innerHTML = '<p>No suggestions found.</p>';
+            return;
+        }
+
+        const suggestionList = document.createElement('ul');
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            suggestionList.appendChild(listItem);
+        });
+
+        suggestionsDiv.appendChild(suggestionList);
+    }
+
+    // Handle form submission
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const formData = new FormData(this);
+
+        fetch(this.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                displaySuggestions(data.suggestions);
+            } else {
+                console.error('Error fetching suggestions:', data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching suggestions:', error);
+        });
+    });
+</script>
+{% endblock %}

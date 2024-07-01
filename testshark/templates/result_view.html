@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Test Results{% endblock %}
+
+{% block content %}
+<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+    <div class="mdc-card">
+        <h2 class="mdc-card__title mdc-card__title--primary">Results for {{ test_script.test_case.name }}</h2>
+        <ul>
+            {% for result in results %}
+                <li>
+                    <strong>Status:</strong> {{ result.status }}
+                    {% if result.error_message %}
+                        <p><strong>Error:</strong> {{ result.error_message }}</p>
+                    {% endif %}
+                    {% if result.screenshot %}
+                        <img src="{{ result.screenshot.url }}" alt="Screenshot">
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
