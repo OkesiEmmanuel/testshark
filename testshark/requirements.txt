@@ -1,5 +1,0 @@
-requests
-pygments
-django-allauth
-javaparser  # For Java
-esprima  # For JavaScript/TypeScript (or acorn) 
