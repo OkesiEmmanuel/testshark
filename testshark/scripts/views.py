@@ -25,18 +25,18 @@ def generate_script_view(request, pk):
 
         try:
             script_content = generate_script(
-                framework=framework,
-                language=language,
-                test_case=test_case,
-                element_identifiers=element_identifiers
+                framework = framework,
+                language = language,
+                test_case = test_case,
+                element_identifiers = element_identifiers
             )
 
             test_script = TestScript.objects.create(
-                project=project,
-                test_case=test_case,
-                framework=framework,
-                language=language,
-                script_content=script_content
+                project = project,
+                test_case = test_case,
+                framework = framework,
+                language = language,
+                script_content = script_content
             )
             return JsonResponse({'success': True, 'script_id': test_script.id})
 

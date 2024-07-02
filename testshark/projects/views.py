@@ -13,6 +13,7 @@ def project_create_view(request):
     """View to create a new project."""
     if request.method == 'POST':
         form = ProjectForm(request.POST, request.FILES)
+
         if form.is_valid():
             project = form.save(commit=False)
             project.owner = request.user

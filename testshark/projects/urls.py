@@ -1,5 +1,15 @@
+"""
+This file contains all the routes to the Project app
+"""
+
 from django.urls import path
-from . import views
+from .views import (
+    project_create_view,
+    project_detail,
+    project_list,
+    project_update_view,
+    project_delete_view,
+)
 
 # URL Patterns for projects app
 urlpatterns = [
