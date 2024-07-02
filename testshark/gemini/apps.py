@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class GemniConfig(AppConfig):
+class GeminiConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'gemni'
+    name = 'gemini'

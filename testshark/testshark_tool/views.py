@@ -3,6 +3,7 @@ from projects.models import Project
 from testcases.models import TestCase
 
 def dashboard_view(request):
+    """Fetch the user and their related projects as well as test cases per each project """
     user = request.user
     projects = Project.objects.filter(owner=user)
 
